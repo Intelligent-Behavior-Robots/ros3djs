@@ -55207,8 +55207,10 @@ var ROS3D = (function (exports, ROSLIB) {
 
 	    this.updateTopic = new ROSLIB__namespace.Topic({
 	      ros : this.ros,
-	      name : topic + '/tunneled/update',
-	      messageType : 'visualization_msgs/InteractiveMarkerUpdate',
+	    //   name : topic + '/tunneled/update',		
+	    //   messageType : 'visualization_msgs/InteractiveMarkerUpdate',
+		  name : topic + '/update',
+		  messageType : 'visualization_msgs/msg/InteractiveMarkerUpdate',
 	      // compression : 'png'
 		  compression : 'cbor'
 	    });
@@ -55217,7 +55219,8 @@ var ROS3D = (function (exports, ROSLIB) {
 	    this.feedbackTopic = new ROSLIB__namespace.Topic({
 	      ros : this.ros,
 	      name : topic + '/feedback',
-	      messageType : 'visualization_msgs/InteractiveMarkerFeedback',
+	    //   messageType : 'visualization_msgs/InteractiveMarkerFeedback',
+		  messageType : 'visualization_msgs/msg/InteractiveMarkerFeedback',
 	      // compression : 'png'
 		  compression : 'cbor'
 	    });
@@ -55225,8 +55228,10 @@ var ROS3D = (function (exports, ROSLIB) {
 
 	    this.initService = new ROSLIB__namespace.Service({
 	      ros : this.ros,
-	      name : topic + '/tunneled/get_init',
-	      serviceType : 'demo_interactive_markers/GetInit'
+	    //   name : topic + '/tunneled/get_init',
+	    //   serviceType : 'demo_interactive_markers/GetInit'
+		  name : topic + '/simple_marker/get_interactive_markers',
+	      serviceType : 'visualization_msgs/srv/GetInteractiveMarkers'
 	    });
 	    var request = new ROSLIB__namespace.ServiceRequest({});
 	    this.initService.callService(request, this.processInit.bind(this));

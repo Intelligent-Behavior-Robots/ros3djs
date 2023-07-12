@@ -7,7 +7,7 @@ class MarkerPublisherNode(Node):
     def __init__(self):
         super().__init__('marker_publisher')
         self.publisher_ = self.create_publisher(Marker, '/visualization_marker', 10)
-        self.timer_ = self.create_timer(1.0, self.publish_marker)
+        self.timer_ = self.create_timer(10.0, self.publish_marker)
         self.get_logger().info('Marker Publisher Node has been started.')
 
     def publish_marker(self):
