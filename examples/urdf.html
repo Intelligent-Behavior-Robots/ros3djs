@@ -18,7 +18,8 @@
   function init() {
     // Connect to ROS.
     var ros = new ROSLIB.Ros({
-      url : 'ws://localhost:9090'
+      url : 'ws://localhost:9090',
+      groovyCompatibility: false,
     });
 
     // Create the main viewer.
@@ -44,7 +45,7 @@
     var urdfClient = new ROS3D.UrdfClient({
       ros : ros,
       tfClient : tfClient,
-      path : 'https://raw.githubusercontent.com/PR2/pr2_common/melodic-devel/',
+      path : '/home/atobaruela/Documentos/GitHub/holorobot_react/src/status/urdf/share/modelo_robot/urdf',
       rootObject : viewer.scene,
     });
   }
